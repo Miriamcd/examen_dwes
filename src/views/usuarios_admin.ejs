@@ -1,0 +1,39 @@
+
+<%- include('partials/header') %>
+<% if (usuarios.length>0) { %>
+
+    <ul>
+        <% for( let i = 0; i < usuarios.length; i++ ) { %>
+
+            <% const usuario = usuarios[i]%>
+            <li>
+                <span>Nombre: <%- usuario.nombre %></span>
+                <span>Email: <%- usuario.email %></span>
+                <p>Contraseña: <%- usuario.pass %></p>
+               
+                
+            </li>
+
+        
+        <% } %>
+    </ul>
+ 
+
+<% } else { %>
+
+    <h1>No hay colección</h1>
+    <% } %>
+
+   
+
+
+<%- include('partials/footer') %>
+
+
+
+
+
+
+
+
+<%- include('partials/footer') %>

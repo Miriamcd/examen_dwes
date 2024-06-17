@@ -1,0 +1,38 @@
+
+<%- include('partials/header') %>
+<% if (libros.length>0) { %>
+
+    <ul>
+        <% for( let i = 0; i < libros.length; i++ ) { %>
+
+            <% const libro = libros[i]%>
+            <li>
+                <span>Título: <%- libro.nombre %></span>
+                <span>Autor: <%- libro.autor %></span>
+                <p>Descripción: <%- libro.descripcion %></p>
+               
+                
+            </li>
+        
+        <% } %>
+    </ul>
+ 
+
+<% } else { %>
+
+    <h1>No hay colección</h1>
+    <% } %>
+
+   
+
+
+<%- include('partials/footer') %>
+
+
+
+
+
+
+
+
+<%- include('partials/footer') %>

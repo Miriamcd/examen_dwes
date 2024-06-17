@@ -1,0 +1,13 @@
+CREATE TABLE `examen_app_libros`.`libros` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(100) NOT NULL,
+  `autor` VARCHAR(100) NOT NULL,
+  `descripcion` VARCHAR(200) NOT NULL,
+  `usuario_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `pk_libro_usuario_idx` (`usuario_id` ASC) VISIBLE,
+  CONSTRAINT `pk_libro_usuario`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `examen_app_libros`.`usuarios` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE);

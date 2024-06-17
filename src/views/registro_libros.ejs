@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<h1>Registra tu libro</h1>
+<form action="./registro_libros" method="post">
+    <input type="hidden" name="user_id" value="user_id">
+    <input type="text" name="titulo" placeholder="Nombre">
+    <input type="text" name="autor" placeholder="Autor">
+    <input type="text" name="descripcion" placeholder="Descripcion">
+   
+    
+    <button type="submit">Registra tu libro</button>
+</form>
+
+
+
+
+<%- include('partials/footer') %>
