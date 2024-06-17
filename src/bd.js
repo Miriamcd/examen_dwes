@@ -20,7 +20,8 @@ const conexion =  mysql.createPool({
 
 
 async function crear_usuario(usuario){
-    await conexion.execute('insert into usuarios (nombre,email,pass) values (?,?,?)',[usuario.nombre,usuario.email,usuario.pass])
+    const [rows] = await conexion.execute('insert into usuarios (nombre,email,pass) values (?,?,?)',[usuario.nombre,usuario.email,usuario.pass])
+    return rows
 }
 
 
