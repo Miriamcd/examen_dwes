@@ -63,7 +63,8 @@ app.post('/registro',async(req,res)=>{
         const usuario_creado = await bd.crear_usuario({nombre,email,pass:contrasena_encriptada})
         const usuario_id = await bd.obtener_usuario_id(usuario_creado.insertId)     
 
-        res.cookie('usuario',{id:usuario_creado.insertId, nombre: usuario_id.nombre, email:usuario_id.email})
+        const token = jwt.sign({user_id: usuario_creado.insertId, nombre: usuario_id.nombre,email:usuario_id.email},process.env.SECRETKEY,{expiresIn: "1h"})
+        res.cookie('usuario',token)
         console.log('usuario creado', usuario_creado);
         console.log('usuario id', usuario_id);
         res.redirect('bienvenida_usuario')
